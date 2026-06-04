@@ -1,0 +1,8 @@
+{
+  "solution": {
+    "path": "lodepng.sln",
+    "projects": [
+      "lodepng\\lodepng.vcxproj",
+    ]
+  }
+}
