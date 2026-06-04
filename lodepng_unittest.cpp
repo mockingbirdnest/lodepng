@@ -3987,7 +3987,11 @@ void doMain() {
   std::cout << "\ntest successful" << std::endl;
 }
 
+#ifdef _MSC_VER
+int __cdecl main() {
+#else
 int main() {
+#endif
   try {
     doMain();
   }

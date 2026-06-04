@@ -37,7 +37,11 @@ freely, subject to the following restrictions:
 #include <stdio.h>
 #include <stdlib.h>
 
+#ifdef PRINCIPIA
+#include <ctime>
+#else
 #include <SDL2/SDL.h> //SDL is used for timing.
+#endif
 
 bool apply_mods = false;
 
@@ -67,7 +71,11 @@ std::string dumpdir;
 ////////////////////////////////////////////////////////////////////////////////
 
 double getTime() {
+#ifdef PRINCIPIA
+  return std::clock() / CLOCKS_PER_SEC;
+#else
   return SDL_GetTicks() / 1000.0;
+#endif
 }
 
 template<typename T, typename U>
@@ -276,7 +284,11 @@ void showHelp(int argc, char *argv[]) {
   std::cout << "  -m: apply modifications to encoder and decoder settings, the modification itself must be implemented or changed in the benchmark source code (search for apply_mods in the code, for encode and for decode)" << std::endl;
 }
 
+#ifdef _MSC_VER
+int __cdecl main(int argc, char *argv[]) {
+#else
 int main(int argc, char *argv[]) {
+#endif
   verbose = false;
   do_decode = true;
   do_encode = true;
