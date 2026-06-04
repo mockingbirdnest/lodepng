@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>17.0</VCProjectVersion>
+    <ProjectGuid>{32d7d889-0df8-455d-8cc8-dc53aa31f1c1}</ProjectGuid>
+  </PropertyGroup>
+  <Import Project="$(SolutionDir)lodepng.props" />
+  <ItemGroup>
+    <ClCompile Include="..\..\lodepng_unittest.cpp" />
+    <ClCompile Include="..\..\lodepng_util.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\lodepng\lodepng.vcxproj">
+      <Project>{f41a6105-c3aa-49d9-ab69-a9716d00242a}</Project>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\lodepng_util.h" />
+  </ItemGroup>
+</Project>
